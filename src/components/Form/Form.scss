@@ -1,0 +1,132 @@
+$muted-color: mix(white, #424242, 70%);
+$width: 15rem;
+$hl-color: #2196f3;
+$trans-time: 300ms;
+$small: 1024px;
+
+form {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: $small) {
+    flex-direction: column;
+  }
+
+  .group {
+    position: relative;
+    margin: 2rem;
+
+    @media screen and (max-width: $small) {
+      margin: 2rem auto;
+    }
+  }
+
+  input {
+    background: none;
+    color: $muted-color;
+    font-size: 1.125rem;
+    padding: 0.625rem 0.625rem 0.625rem 0.3125rem;
+    display: block;
+    width: $width;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid $muted-color;
+    &:focus {
+      outline: none;
+    }
+    &:focus ~ label,
+    &:valid ~ label {
+      top: -0.875rem;
+      font-size: 0.75rem;
+      color: $hl-color;
+    }
+    &:focus ~ .bar:before {
+      width: $width;
+    }
+  }
+
+  label {
+    color: $muted-color;
+    font-size: 1rem;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 0.3125rem;
+    top: 0.625rem;
+    transition: $trans-time ease all;
+  }
+
+  .bar {
+    position: relative;
+    display: block;
+    width: $width;
+    &:before {
+      content: "";
+      height: 2px;
+      width: 0;
+      bottom: 0;
+      position: absolute;
+      background: $hl-color;
+      transition: $trans-time ease all;
+      left: 0%;
+    }
+  }
+
+  .btn {
+    width: 50%;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    background-color: $hl-color;
+    color: #ecf0f1;
+    transition: background-color 0.3s;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+  }
+
+  .btn:hover,
+  .btn:focus {
+    background-color: #1e77be;
+  }
+
+  .btn > * {
+    position: relative;
+  }
+
+  .btn span {
+    display: block;
+    padding: 12px 24px;
+  }
+
+  .btn:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 0;
+    padding-top: 0;
+    border-radius: 100%;
+    background-color: rgba(236, 240, 241, 0.3);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  .btn:active:before {
+    width: 120%;
+    padding-top: 120%;
+    transition: width 0.2s ease-out, padding-top 0.2s ease-out;
+  }
+}

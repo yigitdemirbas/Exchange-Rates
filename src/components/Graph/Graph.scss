@@ -1,0 +1,12 @@
+$small: 1024px;
+
+.graph-wrapper {
+  width: 50%;
+  border-radius: 1rem;
+  background-color: #eee;
+  margin: 0 auto;
+
+  @media screen and (max-width: $small) {
+    width: 95%;
+  }
+}

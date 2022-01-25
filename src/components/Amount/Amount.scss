@@ -1,0 +1,12 @@
+.amount {
+  padding-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+
+  span:first-child {
+    margin-right: .75rem;
+  }
+}
